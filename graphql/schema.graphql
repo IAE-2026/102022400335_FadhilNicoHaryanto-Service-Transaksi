@@ -1,0 +1,12 @@
+type Transaction {
+    id: ID!
+    sender: String!
+    receiver: String!
+    amount: Int!
+    status: String!
+    transaction_date: String!
+}
+
+type Query {
+    transactions: [Transaction!]! @all
+}
