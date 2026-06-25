@@ -12,15 +12,9 @@ use OpenApi\Attributes as OA;
 
 #[OA\SecurityScheme(
     securityScheme: "ApiKeyAuth",
-<<<<<<< HEAD
-    type: "http",
-    scheme: "bearer",
-    bearerFormat: "JWT"
-=======
     type: "apiKey",
     in: "header",
     name: "X-IAE-KEY"
->>>>>>> 2d3a04638b2499e38ca6897529c1c4a8fa88b97a
 )]
 
 class OpenApi

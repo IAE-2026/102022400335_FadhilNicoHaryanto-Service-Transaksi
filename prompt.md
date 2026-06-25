@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-Fokus utama tugas ini adalah mengintegrasikan transaksi kritis dengan sistem keamanan terpusat melalui Federated SSO, melakukan pencatatan audit ke sistem Legacy SOAP/XML, serta mendistribusikan event bisnis secara asinkron melalui RabbitMQ.
-
-Saya membutuhkan bantuan untuk mengembangkan endpoint `POST /api/v1/transactions` sebagai transaksi kritis karena endpoint tersebut merupakan state-changing operation yang membuat data transaksi baru dan berdampak langsung terhadap integritas data bisnis. Implementasi harus memastikan bahwa proses transaksi tidak hanya tersimpan di database lokal, tetapi juga tervalidasi melalui SSO, tercatat pada sistem audit pusat, dan dipublikasikan sebagai event `TransactionCreated` ke message broker.
-
-Tolong susun solusi secara lengkap menggunakan Laravel dengan pendekatan Service Layer agar kode lebih modular, terstruktur, dan maintainable. Solusi harus mencakup integrasi SSO Machine-to-Machine menggunakan API Key, integrasi SSO Warga menggunakan akun warga, pembacaan payload JWT, pemetaan user dan role lokal, penyimpanan transaksi ke database, pengiriman audit SOAP ke endpoint `/soap/v1/audit`, serta publish event JSON ke endpoint `/api/v1/messages/publish`.
-=======
 
 ## Tugas 2 — Build Your Service
 ## Mata Kuliah Integrasi Aplikasi Enterprise
@@ -157,5 +150,4 @@ Bantu saya membuat skenario pengujian REST API menggunakan Postman untuk memasti
 
 ---
 
->>>>>>> 2d3a04638b2499e38ca6897529c1c4a8fa88b97a
 
