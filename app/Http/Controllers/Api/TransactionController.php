@@ -17,7 +17,8 @@ class TransactionController extends Controller
     )]
     #[OA\Response(
         response: 200,
-        description: "Success"
+        description: "Success",
+        content: new OA\JsonContent()
     )]
     public function index()
     {
@@ -48,7 +49,8 @@ class TransactionController extends Controller
     )]
     #[OA\Response(
         response: 200,
-        description: "Success"
+        description: "Success",
+        content: new OA\JsonContent()
     )]
     public function show($id)
     {
@@ -105,7 +107,8 @@ class TransactionController extends Controller
 )]
     #[OA\Response(
         response: 201,
-        description: "Transaction created"
+        description: "Transaction created",
+        content: new OA\JsonContent()
     )]
     public function store(Request $request)
     {
