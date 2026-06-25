@@ -117,22 +117,6 @@ class TransactionController extends Controller
             'transaction_date' => now()
         ]);
 
-<<<<<<< HEAD
-        // Integration with IAE Central
-        $iaeService = new \App\Services\IaeIntegrationService();
-        
-        // 1. SOAP Audit
-        $receipt = $iaeService->sendAudit($transaction);
-        if ($receipt) {
-            $transaction->audit_receipt = $receipt;
-            $transaction->save();
-        }
-
-        // 2. AMQP Publisher (via HTTP Bridge)
-        $iaeService->publishMessage($transaction);
-
-=======
->>>>>>> 2d3a04638b2499e38ca6897529c1c4a8fa88b97a
         return response()->json([
             'status' => 'success',
             'message' => 'Transaction created successfully',

@@ -22,10 +22,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-<<<<<<< HEAD
-        'role_id',
-=======
->>>>>>> 2d3a04638b2499e38ca6897529c1c4a8fa88b97a
     ];
 
     /**
@@ -50,12 +46,4 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-<<<<<<< HEAD
-
-    public function role()
-    {
-        return $this->belongsTo(Role::class);
-    }
-=======
->>>>>>> 2d3a04638b2499e38ca6897529c1c4a8fa88b97a
 }

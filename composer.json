@@ -8,14 +8,10 @@
     "require": {
         "php": "^8.2",
         "darkaonline/l5-swagger": "^11.0",
-<<<<<<< HEAD
-        "firebase/php-jwt": "^7.0",
-        "guzzlehttp/guzzle": "^7.10",
-=======
->>>>>>> 2d3a04638b2499e38ca6897529c1c4a8fa88b97a
         "laravel/framework": "^12.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.10.1",
+        "mll-lab/laravel-graphiql": "^4.1",
         "nuwave/lighthouse": "^6.66"
     },
     "require-dev": {

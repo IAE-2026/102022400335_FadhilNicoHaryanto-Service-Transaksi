@@ -14,10 +14,6 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
             'apikey' => \App\Http\Middleware\CheckApiKey::class,
-<<<<<<< HEAD
-            'sso' => \App\Http\Middleware\FederatedSsoMiddleware::class,
-=======
->>>>>>> 2d3a04638b2499e38ca6897529c1c4a8fa88b97a
         ]);
     }) 
     ->withExceptions(function (Exceptions $exceptions): void {

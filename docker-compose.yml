@@ -3,7 +3,7 @@ version: '3.8'
 services:
   laravel-app:
     build: .
-    container_name: transaction-service
+    container_name: fadhil-transaction-service
     ports:
       - "8000:8000"
     volumes:
