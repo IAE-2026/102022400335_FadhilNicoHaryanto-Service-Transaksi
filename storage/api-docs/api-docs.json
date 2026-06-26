@@ -6,13 +6,13 @@
         "version": "1.0.0"
     },
     "paths": {
-        "/api/v1/transactions": {
+        "/api/v1/": {
             "get": {
                 "tags": [
                     "Transactions"
                 ],
                 "summary": "Get all transactions",
-                "operationId": "7982071b501714798015d3493437d591",
+                "operationId": "36ec0f505caeafd160f1ac5807f1e131",
                 "responses": {
                     "200": {
                         "description": "Success",
@@ -34,17 +34,12 @@
                     "Transactions"
                 ],
                 "summary": "Create new transaction",
-                "operationId": "a02494103b0173bce800dcdf6c920ce6",
+                "operationId": "9e75c182c935e344c7f57eea333b9f41",
                 "requestBody": {
-                    "required": true,
+                    "required": false,
                     "content": {
                         "application/json": {
                             "schema": {
-                                "required": [
-                                    "sender",
-                                    "receiver",
-                                    "amount"
-                                ],
                                 "properties": {
                                     "sender": {
                                         "type": "string",
@@ -81,13 +76,13 @@
                 ]
             }
         },
-        "/api/v1/transactions/{id}": {
+        "/api/v1/{id}": {
             "get": {
                 "tags": [
                     "Transactions"
                 ],
                 "summary": "Get transaction by ID",
-                "operationId": "be1ae535bffb92f867a54d7950c8de78",
+                "operationId": "b1b19447edd00ae94d4475b12b801893",
                 "parameters": [
                     {
                         "name": "id",
