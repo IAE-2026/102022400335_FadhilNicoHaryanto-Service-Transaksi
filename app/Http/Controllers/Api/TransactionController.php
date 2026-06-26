@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use OpenApi\Attributes as OA;
 
 class TransactionController extends Controller
@@ -31,7 +32,8 @@ class TransactionController extends Controller
             'meta' => [
                 'service_name' => 'Transaction-Service',
                 'api_version' => 'v1'
-            ]
+            ],
+            'errors' => null
         ], 200);
     }
 
@@ -60,7 +62,9 @@ class TransactionController extends Controller
             return response()->json([
                 'status' => 'error',
                 'message' => 'Transaction not found',
-                'errors' => null
+                'data' => null,
+                'meta' => null,
+                'errors' => ['Transaction not found']
             ], 404);
         }
 
@@ -71,7 +75,8 @@ class TransactionController extends Controller
             'meta' => [
                 'service_name' => 'Transaction-Service',
                 'api_version' => 'v1'
-            ]
+            ],
+            'errors' => null
         ], 200);
     }
 
@@ -112,6 +117,22 @@ class TransactionController extends Controller
     )]
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'sender' => 'required|string',
+            'receiver' => 'required|string',
+            'amount' => 'required|numeric|min:1'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Validation error',
+                'data' => null,
+                'meta' => null,
+                'errors' => $validator->errors()->all()
+            ], 422);
+        }
+
         $transaction = Transaction::create([
             'sender' => $request->sender,
             'receiver' => $request->receiver,
@@ -127,7 +148,8 @@ class TransactionController extends Controller
             'meta' => [
                 'service_name' => 'Transaction-Service',
                 'api_version' => 'v1'
-            ]
+            ],
+            'errors' => null
         ], 201);
     }
 
@@ -145,7 +167,8 @@ class TransactionController extends Controller
             'meta' => [
                 'service_name' => 'Transaction-Service',
                 'api_version' => 'v1'
-            ]
+            ],
+            'errors' => null
         ], 200);
     }
 }

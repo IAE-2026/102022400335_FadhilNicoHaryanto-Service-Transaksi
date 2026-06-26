@@ -1,7 +1,7 @@
 FROM php:8.2-cli
 
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* && apt-get update -y --fix-missing && apt-get install -y \
     git \
     curl \
     libpng-dev \
@@ -10,7 +10,8 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip \
     sqlite3 \
-    libsqlite3-dev
+    libsqlite3-dev \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 
 RUN docker-php-ext-install pdo pdo_sqlite mbstring exif pcntl bcmath gd
@@ -27,7 +28,10 @@ COPY . .
 RUN composer install
 
 
-RUN php artisan key:generate
+RUN cp .env.example .env && \
+    php artisan key:generate && \
+    touch database/database.sqlite && \
+    php artisan migrate --force
 
 
 EXPOSE 8000
